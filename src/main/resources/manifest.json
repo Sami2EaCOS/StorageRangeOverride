@@ -1,0 +1,17 @@
+{
+  "Group": "Samiracle",
+  "Name": "StorageRangeOverride",
+  "Version": "1.0.0",
+  "Description": "Overrides the range of storage blocks for benches.",
+  "Authors": [
+    {
+      "Name": "Samiracle"
+    }
+  ],
+  "ServerVersion": "*",
+  "Dependencies": {},
+  "OptionalDependencies": {},
+  "DisabledByDefault": false,
+  "Main": "fr.samiracle.srange.StorageRange",
+  "IncludesAssetPack": true
+}
