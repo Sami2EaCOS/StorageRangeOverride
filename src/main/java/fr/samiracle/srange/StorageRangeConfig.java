@@ -34,4 +34,16 @@ public class StorageRangeConfig {
         return storageChestLimit;
     }
 
+    public void setStorageHorizontalRange(int storageHorizontalRange) {
+        this.storageHorizontalRange = storageHorizontalRange;
+    }
+
+    public void setStorageVerticalRange(int storageVerticalRange) {
+        this.storageVerticalRange = storageVerticalRange;
+    }
+
+    public void setStorageChestLimit(int storageChestLimit) {
+        this.storageChestLimit = storageChestLimit;
+    }
+
 }

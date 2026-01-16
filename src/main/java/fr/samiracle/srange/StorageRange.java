@@ -1,5 +1,6 @@
 package fr.samiracle.srange;
 
+import com.hypixel.hytale.event.EventBus;
 import com.hypixel.hytale.server.core.HytaleServer;
 import com.hypixel.hytale.server.core.asset.type.gameplay.CraftingConfig;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
@@ -26,15 +27,31 @@ public class StorageRange extends JavaPlugin {
     protected void setup() {
         super.setup();
         this.config.save();
-        var eventBus = HytaleServer.get().getEventBus();
 
+        this.getCommandRegistry().registerCommand(new StorageRangeCommand(this));
+
+        EventBus eventBus = HytaleServer.get().getEventBus();
         eventBus.register(AllWorldsLoadedEvent.class, event -> {
-            for (World world : Universe.get().getWorlds().values()) {
-                applyStorageRange(world);
-            }
+            applyStorageRangeAllWorlds();
         });
 
         eventBus.registerGlobal(AddWorldEvent.class, event -> applyStorageRange(event.getWorld()));
+    }
+
+    void updateConfig(int horizontalRange, int verticalRange, int limit) {
+        StorageRangeConfig cfg = this.config.get();
+        cfg.setStorageHorizontalRange(horizontalRange);
+        cfg.setStorageVerticalRange(verticalRange);
+        cfg.setStorageChestLimit(limit);
+        this.config.save();
+
+        applyStorageRangeAllWorlds();
+    }
+
+    void applyStorageRangeAllWorlds() {
+        for (World world : Universe.get().getWorlds().values()) {
+            applyStorageRange(world);
+        }
     }
 
     private void applyStorageRange(World world) {
