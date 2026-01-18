@@ -1,7 +1,7 @@
 {
   "Group": "Samiracle",
   "Name": "StorageRangeOverride",
-  "Version": "1.1.0",
+  "Version": "1.1.1",
   "Description": "Overrides the range of storage blocks for benches.",
   "Authors": [
     {
