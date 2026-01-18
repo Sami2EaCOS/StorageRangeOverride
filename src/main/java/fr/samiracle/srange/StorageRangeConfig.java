@@ -18,7 +18,7 @@ public class StorageRangeConfig {
                     (config, _) -> config.storageChestLimit).add()
             .build();
 
-    private int storageHorizontalRange = 10;
+    private int storageHorizontalRange = 20;
     private int storageVerticalRange = 10;
     private int storageChestLimit = 100;
 
